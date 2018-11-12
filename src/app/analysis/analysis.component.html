@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-9">
+    <h2>
+      Analyst Summary
+      <sup>
+        <small>
+          <span class="badge badge-success">TRADE LONG</span>
+          <span class="badge badge-danger">TRADE SHORT</span>
+          <span class="badge badge-warning">DO NOT TRADE</span>
+        </small>
+      </sup>
+    </h2>
+  </div>
+  <div class="col-3">
+    <div class="btn-group">
+      <button type="button"
+              class="btn btn-light dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false">
+        SYMBOL: {{dropdown_title}}
+      </button>
+      <div class="dropdown-menu">
+        <span class="dropdown-item"
+              *ngFor="let currency of currencies"
+              (click)="setCurrency(currency)">
+          <div class="dropdown-divider"></div>
+          {{currency}}
+          <div class="dropdown-divider"></div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<button type="button" class="btn btn-light">Updated November 11th, 2018</button>
+<br>
+<br>
+<div class="row">
+  <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">BB% Crossing HMA</h5>
+        <h6 class="card-subtitle mb-2 text-muted">TRUE</h6>
+        <small class="card-text">
+          Some quick example text to build on the card title and make up
+          the bulk of the card's content.
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">BB% Crossing HMA</h5>
+        <h6 class="card-subtitle mb-2 text-muted">TRUE</h6>
+        <small class="card-text">
+          Some quick example text to build on the card title and make up
+          the bulk of the card's content.
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">BB% Crossing HMA</h5>
+      <h6 class="card-subtitle mb-2 text-muted">TRUE</h6>
+      <small class="card-text">
+        Some quick example text to build on the card title and make up
+        the bulk of the card's content.
+      </small>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    PROBABILITY OF SUCCESS
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">60%</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">TRADE NOW</a>
+  </div>
+</div>
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    OVERALL SUCCESS RATE
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">90%</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">TRADE NOW</a>
+  </div>
+</div>
+<br>
+<app-chart [currency]="currency"></app-chart>
+<br>

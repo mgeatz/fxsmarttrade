@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {InfoService} from './info.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
+
   title = 'fxsmarttrade';
+
+  selectedPage = 'home';
+
+  pageUpdated($event) {
+    this.selectedPage = $event;
+  }
+
 }
