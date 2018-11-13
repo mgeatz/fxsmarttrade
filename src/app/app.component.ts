@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {InfoService} from './info.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,8 @@ export class AppComponent {
   title = 'fxsmarttrade';
 
   selectedPage = 'home';
+
+  currentTime = moment();
 
   pageUpdated($event) {
     this.selectedPage = $event;

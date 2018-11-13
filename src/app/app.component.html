@@ -2,21 +2,25 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-10">
-      <h1>{{selectedPage | uppercase }}</h1>
+    <div class="col-sm-9">
+      <h1 *ngIf="selectedPage === 'home'">Trade Analysis</h1>
+      <h1 *ngIf="selectedPage !== 'home'">{{selectedPage | titlecase }}</h1>
+    </div>
+    <div class="col-sm-3">
+      <small>{{currentTime}}</small>
     </div>
   </div>
+  <p>Short page description here.</p>
   <hr>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
+      <li class="breadcrumb-item" *ngIf="selectedPage === 'home'">
         <a routerLink="/" (click)="goTo('home')">Home</a>
       </li>
-      <li class="breadcrumb-item active"
-          *ngIf="selectedPage !== 'home'">
-        <a [routerLink]="selectedPage">{{selectedPage}}</a>
+      <li class="breadcrumb-item active" *ngIf="selectedPage !== 'home'">
+        <a routerLink="/">Home</a> / {{selectedPage}}
       </li>
     </ol>
   </nav>
-  <router-outlet></router-outlet>
 </div>
+<router-outlet></router-outlet>

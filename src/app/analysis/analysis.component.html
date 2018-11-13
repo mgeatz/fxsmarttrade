@@ -1,26 +1,23 @@
-<div class="row">
-  <div class="col-9">
-    <h2>
-      Analyst Summary
-      <sup>
-        <small>
-          <span class="badge badge-success">TRADE LONG</span>
-          <span class="badge badge-danger">TRADE SHORT</span>
-          <span class="badge badge-warning">DO NOT TRADE</span>
-        </small>
-      </sup>
-    </h2>
-  </div>
-  <div class="col-3">
-    <div class="btn-group">
-      <button type="button"
-              class="btn btn-light dropdown-toggle"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false">
-        SYMBOL: {{dropdown_title}}
-      </button>
-      <div class="dropdown-menu">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      STOP LOSS:
+      <input type="number" min="1" max="100">
+    </div>
+    <div class="col-sm-4">
+      TAKE PROFIT:
+      <input type="number" min="1" max="1000">
+    </div>
+    <div class="col-sm-4">
+      <div class="btn-group">
+        <button type="button"
+                class="btn btn-primary dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+          SYMBOL: {{dropdown_title}}
+        </button>
+        <div class="dropdown-menu">
         <span class="dropdown-item"
               *ngFor="let currency of currencies"
               (click)="setCurrency(currency)">
@@ -28,74 +25,91 @@
           {{currency}}
           <div class="dropdown-divider"></div>
         </span>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <br>
-<button type="button" class="btn btn-light">Updated November 11th, 2018</button>
-<br>
-<br>
-<div class="row">
-  <div class="col-4">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">BB% Crossing HMA</h5>
-        <h6 class="card-subtitle mb-2 text-muted">TRUE</h6>
-        <small class="card-text">
-          Some quick example text to build on the card title and make up
-          the bulk of the card's content.
-        </small>
+
+<div class="container">
+  <h5>Provide an answer to the <b>Rules</b> below to generate probability.</h5>
+  <br>
+  <div class="row">
+    <div *ngFor="let indicator of technicalIndicators"
+         class="col-sm-12 col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <small><i>TECHNICAL INDICATOR</i></small>
+          <h5 class="card-title">{{indicator.title}}
+            <br><sub>{{indicator.inputs}}</sub></h5><br>
+          <h6 class="card-subtitle mb-2 text-muted">{{indicator.flagStatement}}</h6>
+          <button class="btn">YES</button>&nbsp;
+          <button class="btn">NO</button>
+          <br>
+          <br>
+          <small>{{indicator.details}}</small>
+        </div>
       </div>
+      <br>
     </div>
   </div>
-  <div class="col-4">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">BB% Crossing HMA</h5>
-        <h6 class="card-subtitle mb-2 text-muted">TRUE</h6>
-        <small class="card-text">
-          Some quick example text to build on the card title and make up
-          the bulk of the card's content.
-        </small>
-      </div>
-    </div>
-  </div>
-  <div class="col-4">
-  <div class="card" style="width: 18rem;">
+  <div class="text-center">
     <div class="card-body">
-      <h5 class="card-title">BB% Crossing HMA</h5>
-      <h6 class="card-subtitle mb-2 text-muted">TRUE</h6>
-      <small class="card-text">
-        Some quick example text to build on the card title and make up
-        the bulk of the card's content.
-      </small>
+      <button class="btn">CALCULATE PROBABILITY</button>
     </div>
   </div>
 </div>
+
+
+<div class="probs_section">
+  <div class="container">
+    <h6>Probability of success:</h6>
+    <div class="progress">
+      <div class="progress-bar success_probability"
+           role="progressbar"
+           [style.width]="successProbability + '%'"
+           aria-valuemin="0"
+           aria-valuemax="100">{{successProbability}}%
+      </div>
+    </div>
+    <br>
+    <h6>Probability of failure:</h6>
+    <div class="progress">
+      <div class="progress-bar failure_probability"
+           role="progressbar"
+           [style.width]="failureProbability + '%'"
+           aria-valuemin="0"
+           aria-valuemax="100">{{failureProbability}}%
+      </div>
+    </div>
+  </div>
 </div>
-<br>
-<div class="card text-center">
-  <div class="card-header">
-    PROBABILITY OF SUCCESS
+
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      PLACE TRADE NOW
+    </div>
+    <div class="card-body">
+      <p class="card-text">Login or sign up to enable this feature.</p>
+      <button class="btn" routerLink="/login">TRADE NOW</button>
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">60%</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">TRADE NOW</a>
+  <br>
+
+  <div class="card text-center">
+    <div class="card-header">
+      HISTORICAL SUCCESS RATE
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">%</h5>
+      <p class="card-text">Login or sign up to enable this feature.</p>
+      <button class="btn" routerLink="/login">LOGIN</button>&nbsp;<button class="btn" routerLink="/signup">SIGN UP</button>
+    </div>
   </div>
+  <br>
+
+  <app-chart [currency]="currency"></app-chart>
 </div>
-<br>
-<div class="card text-center">
-  <div class="card-header">
-    OVERALL SUCCESS RATE
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">90%</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">TRADE NOW</a>
-  </div>
-</div>
-<br>
-<app-chart [currency]="currency"></app-chart>
-<br>
