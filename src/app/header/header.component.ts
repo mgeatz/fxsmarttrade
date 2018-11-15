@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {InfoService} from '../info.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,8 @@ export class HeaderComponent implements OnInit {
 
   title = 'FX Smart Trade';
 
+  lightTheme: boolean;
+
   pages = [
     'home',
     'about',
@@ -22,9 +25,13 @@ export class HeaderComponent implements OnInit {
     'signup'
   ];
 
-  constructor(){}
+  constructor(private info: InfoService){}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.lightTheme = false;
+
+  }
 
   goTo(page) {
 
@@ -33,6 +40,11 @@ export class HeaderComponent implements OnInit {
     this.selectedPage = page;
 
     this.pageChangeEvent.emit(this.selectedPage);
+  }
+
+  changeTheme(lightTheme) {
+    this.lightTheme = !lightTheme;
+    this.info.changeTheme(this.lightTheme);
   }
 
 }

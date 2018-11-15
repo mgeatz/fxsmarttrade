@@ -1,7 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'styles/colors'
+
 body
-  background-color: #1b2031
-  color: #dddddd
+  .main_body_div
+    height: 100%
+    min-height: 100vh
+  .lightTheme
+    background-color: #cccccc
+    color: #1b2031
+    nav.navbar
+      background-color: #cccccc
+      color: #1b2031
+    a.navbar-brand
+      color: #1b2031
+    .nav-item.active
+      background-color: #5239b2
+    li
+      a
+        color: #1b2031
+  .darkTheme
+    background-color: #1b2031
+    color: #dddddd
+    nav.navbar
+      background-color: rgb(20, 24, 37)
+      color: #eeeeee
+    a.navbar-brand
+      color: #eeeeee
+    .nav-item.active
+      background-color: #5239b2
+    li
+      a
+        color: #eeeeee
 
 hr
   background: rgba(0,0,0,0.25)
@@ -20,3 +50,6 @@ input
   background: rgba(0,0,0,0.25)
   color: #eeeeee
   border: 1px solid #5239b2
+  border-radius: 4px
+  padding: 5px 7px
+  margin: 0 5px
