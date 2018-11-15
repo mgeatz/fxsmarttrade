@@ -6,50 +6,88 @@ body
   .main_body_div
     height: 100%
     min-height: 100vh
+
+
   .lightTheme
-    background-color: #cccccc
-    color: #1b2031
+    background-color: $light
+    color: $deep-purple
     nav.navbar
-      background-color: #cccccc
-      color: #1b2031
+      background-color: $gray
+      color: $deep-blue
     a.navbar-brand
-      color: #1b2031
+      color: $deep-blue
     .nav-item.active
-      background-color: #5239b2
+      background-color: $deep-blue
+      a
+        color: $light
     li
       a
-        color: #1b2031
+        color: $deep-blue
+    hr
+      background: $deep-blue
+    button
+      background: linear-gradient(to right, #1a9fb4, $deep-blue)
+      color: $light
+    .card
+      background: $gray !important
+      border-bottom: 1px solid $pop-cyan
+      box-shadow: 0px 0px 6px 0px $pop-cyan
+    h1
+      color: $deep-blue
+    h2
+      color: $pop-green
+    .probs_section
+      background: $gray
+    input
+      background: $gray
+      color: $deep-blue
+      border: 2px solid $pop-blue
+
+
   .darkTheme
-    background-color: #1b2031
-    color: #dddddd
+    background-color: $deep-purple
+    color: $light-gray
     nav.navbar
-      background-color: rgb(20, 24, 37)
-      color: #eeeeee
+      background-color: $deep-purple-rgb
+      color: $light
     a.navbar-brand
-      color: #eeeeee
+      color: $light
     .nav-item.active
-      background-color: #5239b2
+      background-color: $pop-purple
     li
       a
-        color: #eeeeee
+        color: $light
+    hr
+      background: $deep-purple-trans
+    button
+      background: linear-gradient(to right, $pop-blue, $pop-purple)
+      color: $light
+    .card
+      background: $deep-purple-trans !important
+      border-bottom: 1px solid $pop-purple
+      box-shadow: 0px 0px 6px 0px $pop-purple
+    h1
+      color: $pop-pink
+    h2
+      color: $pop-blue
+    .probs_section
+      background: $deep-purple-trans
+      color: $light
+    input
+      background: $deep-purple-trans
+      color: $light
+      border: 1px solid $pop-purple
 
-hr
-  background: rgba(0,0,0,0.25)
-
-button
-  background: linear-gradient(to right, #02cdf8, #5239b2)
-  color: #eeeeee
-
-h1
-  color: #fc4680
-
-h2
-  color: #02cdf8
 
 input
-  background: rgba(0,0,0,0.25)
-  color: #eeeeee
-  border: 1px solid #5239b2
   border-radius: 4px
   padding: 5px 7px
   margin: 0 5px
+
+
+.btn
+  min-width: 80px
+  border-radius: 10px
+  border: none
+  padding: 7px 20px
+  margin: 5px
